@@ -1,0 +1,334 @@
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 72px;
+
+  background: #050505;
+  border-bottom: 1px solid #1f1f1f;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* =========================================================
+   NAVBAR CONTAINER
+   ========================================================= */
+
+.navbar-container {
+  width: 100%;
+  max-width: 1440px;
+
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.nav-brand a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-brand-mark {
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111111;
+
+  color: #ffffff;
+}
+
+.nav-brand-mark svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* If needed for other elements */
+}
+
+.nav-brand h2 {
+  margin: 0;
+  color: #ffffff;
+  position: absolute;
+  left: 650px; /* Adjust this value as needed */
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  height: 100%;
+}
+
+.nav-link {
+  position: relative;
+
+  height: 40px;
+
+  padding: 0 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-radius: 8px;
+
+  color: #a1a1aa;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: #111111;
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background: #171717;
+}
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 14px;
+  right: 14px;
+  bottom: -17px;
+
+  height: 2px;
+
+  background: #ffffff;
+
+  border-radius: 999px;
+}
+
+.nav-link svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   NAVBAR ACTIONS
+   ========================================================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.nav-menu-button {
+  display: none;
+
+  width: 40px;
+  height: 40px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+
+  background: #111111;
+  color: #ffffff;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.nav-menu-button:hover {
+  background: #1b1b1b;
+  border-color: #3a3a3a;
+}
+
+.nav-menu-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-link {
+    padding: 0 11px;
+  }
+
+  .nav-link.active::after {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+  .navbar {
+    height: 64px;
+  }
+
+  .navbar-container {
+    padding: 0 16px;
+  }
+
+  .nav-brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-brand h2 {
+    font-size: 16px;
+  }
+
+  .nav-menu-button {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    height: auto;
+
+    padding: 12px 16px;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    background: #050505;
+
+    border-bottom: 1px solid #1f1f1f;
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    height: 44px;
+
+    justify-content: flex-start;
+
+    padding: 0 14px;
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 12px;
+  }
+
+  .nav-brand h2 {
+    font-size: 15px;
+  }
+
+  .nav-brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-brand-mark svg {
+    width: 17px;
+    height: 17px;
+  }
+}
