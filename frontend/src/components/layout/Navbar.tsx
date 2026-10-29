@@ -1,13 +1,21 @@
 
 import { useState } from "react";
-import { Home, Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Home, LogOut, Menu, X } from "lucide-react";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
-import "./Navbar.css";
+import { logout } from "../../services/apiClient";
+import "./Navbar.scss";
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
 
   const isHomeActive = location.pathname === "/";
 
@@ -17,6 +25,22 @@ export default function Navbar() {
 
   function toggleMobileMenu(): void {
     setMobileOpen((current) => !current);
+  }
+
+  async function handleLogout(): Promise<void> {
+    if (loggingOut) return;
+
+    setLoggingOut(true);
+
+    try {
+      await logout();
+    } catch (error) {
+      console.error("Logout request failed:", error);
+    } finally {
+      closeMobileMenu();
+      setLoggingOut(false);
+      navigate("/login", { replace: true });
+    }
   }
 
   return (
@@ -29,17 +53,20 @@ export default function Navbar() {
         </div>
 
         <div
+          id="main-navigation-links"
           className={`nav-links ${mobileOpen ? "mobile-open" : ""}`}
         >
-          <Link
-            to="/"
-            className={`nav-link ${isHomeActive ? "active" : ""}`}
-            onClick={closeMobileMenu}
-            aria-current={isHomeActive ? "page" : undefined}
+          
+
+          <button
+            type="button"
+            className="nav-link"
+            onClick={handleLogout}
+            disabled={loggingOut}
           >
-            <Home size={16} strokeWidth={2} aria-hidden="true" />
-            <span>Home</span>
-          </Link>
+            <LogOut size={16} aria-hidden="true" />
+            <span>{loggingOut ? "Signing out..." : "Logout"}</span>
+          </button>
         </div>
 
         <button

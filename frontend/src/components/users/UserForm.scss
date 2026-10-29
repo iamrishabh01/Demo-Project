@@ -1,0 +1,100 @@
+
+$user-form-border: #e2e8f0;
+$user-form-text: #111827;
+$user-form-muted: #64748b;
+$user-form-surface: #ffffff;
+$user-form-background: #f8fafc;
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: $user-form-text;
+
+  &__alert {
+    border-radius: 8px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    > h3 {
+      margin: 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid $user-form-border;
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  &__upload-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  &__upload-card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    padding: 20px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    background: $user-form-background;
+
+    > svg {
+      color: $user-form-muted;
+    }
+
+    > strong {
+      font-size: 13px;
+    }
+
+    > span {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      color: $user-form-muted;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+
+  &__footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 0 0;
+    border-top: 1px solid $user-form-border;
+    background: $user-form-surface;
+  }
+}
+
+@media (max-width: 640px) {
+  .user-form {
+    &__grid,
+    &__upload-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__footer {
+      flex-direction: column-reverse;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

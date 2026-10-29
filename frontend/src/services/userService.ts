@@ -8,18 +8,6 @@ import type {
 
 export type { BulkDeleteResponse, UserMutationResponse } from "../types/api.types";
 
-export interface UserInput {
-  name: string;
-  email: string;
-  age?: number | null;
-  city?: string | null;
-  joined_date?: string | null;
-  is_active?: boolean | 0 | 1;
-  gender?: "Male" | "Female" | "Other" | null;
-  department_id?: number | null;
-  address?: string | null;
-}
-
 export async function getUsers(): Promise<User[]> {
   return request<User[]>("/users");
 }

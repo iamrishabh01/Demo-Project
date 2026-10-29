@@ -1554,7 +1554,6 @@
 
   .users-toolbar {
     align-items: stretch;
-    flex-direction: column;
   }
 
   .search-box {

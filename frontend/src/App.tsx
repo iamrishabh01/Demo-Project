@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import AppLayout from "./components/layout/AppLayout";
 import AppRoutes from "./routes/AppRoutes";
 
-import "./App.css";
+import "./App.scss";
 
 export default function App() {
   return (

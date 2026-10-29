@@ -1,0 +1,150 @@
+
+$color-primary: #111827;
+$color-primary-hover: #273449;
+$color-text: #334155;
+$color-muted: #64748b;
+$color-border: #e2e8f0;
+$color-surface: #ffffff;
+$color-focus: #475569;
+
+.users-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 24px;
+
+  &__header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+  &__heading {
+    min-width: 0;
+
+    h1 {
+      margin: 0;
+      color: $color-primary;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 8px 0 0;
+      color: $color-muted;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: $color-muted;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+  }
+
+  &__add-button {
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+  min-height: 42px !important;
+  padding: 10px 18px !important;
+  border-radius: 8px !important;
+  background-color: $color-primary !important;
+  box-shadow: none !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+
+  &:hover {
+    background-color: $color-primary-hover !important;
+    box-shadow: none !important;
+  }
+}
+
+  &__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; // push the whole group to the right
+  gap: 12px;
+  width: 100%;
+}
+
+&__search {
+  flex: 0 0 320px;   // or 420px
+  max-width: 420px;
+  min-width: 220px;
+}
+
+  &__search {
+    flex: 1;
+    min-width: 0;
+    background-color: $color-surface;
+
+    .MuiOutlinedInput-root {
+      min-height: 44px;
+      border-radius: 8px;
+      font-size: 13px;
+
+      &:hover .MuiOutlinedInput-notchedOutline {
+        border-color: #94a3b8;
+      }
+
+      &.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: $color-focus;
+        border-width: 1px;
+      }
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: $color-border;
+    }
+  }
+
+  &__refresh-button {
+    flex-shrink: 0;
+    min-height: 44px !important;
+    padding: 8px 16px !important;
+    border-color: $color-border !important;
+    border-radius: 8px !important;
+    color: $color-text !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+
+    &:hover {
+      border-color: #94a3b8 !important;
+      background-color: #f8fafc !important;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .users-toolbar {
+    &__header {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    &__heading h1 {
+      font-size: 25px;
+    }
+
+    &__add-button {
+      width: 100%;
+    }
+
+    &__controls {
+      align-items: stretch;
+    }
+
+    &__refresh-button {
+      padding-inline: 10px !important;
+    }
+  }
+}

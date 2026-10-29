@@ -1,0 +1,214 @@
+
+$border-color: #e5e7eb;
+$text-primary: #111827;
+$text-secondary: #64748b;
+$surface: #ffffff;
+$row-hover: #f8fafc;
+$primary: #334155;
+
+.user-table {
+  &__paper {
+    width: 100%;
+    overflow: auto;
+    border: 1px solid $border-color;
+    border-radius: 12px !important;
+    background: $surface;
+  }
+
+  &__row {
+    transition: background-color 150ms ease;
+
+    &:hover {
+      background-color: $row-hover !important;
+    }
+
+    &.Mui-selected {
+      background-color: #eff6ff !important;
+    }
+
+    &.Mui-selected:hover {
+      background-color: #dbeafe !important;
+    }
+  }
+
+  &__checkbox-cell {
+    width: 48px;
+    padding-left: 12px !important;
+  }
+
+  &__identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 190px;
+  }
+
+  &__avatar {
+    width: 38px !important;
+    height: 38px !important;
+    flex-shrink: 0;
+    background-color: #e2e8f0 !important;
+    color: $primary !important;
+    font-size: 14px !important;
+    font-weight: 700;
+  }
+
+  &__user-info {
+    min-width: 0;
+  }
+
+  &__name {
+    color: $text-primary;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+
+  &__secondary {
+    margin-top: 3px !important;
+    color: $text-secondary;
+    font-size: 11px !important;
+  }
+
+  &__email {
+    overflow-wrap: anywhere;
+    color: #475569;
+    font-size: 12px;
+  }
+
+  &__sort-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: #475569;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+
+    svg {
+      font-size: 15px;
+    }
+
+    &:hover,
+    &.is-active {
+      color: $text-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #64748b;
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+  }
+
+  &__status {
+    height: 25px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+
+    &--active {
+      background: #dcfce7 !important;
+      color: #166534 !important;
+    }
+
+    &--inactive {
+      background: #fee2e2 !important;
+      color: #991b1b !important;
+    }
+  }
+
+  &__document-button {
+    color: #475569 !important;
+
+    &:hover {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+    }
+  }
+
+  &__no-document {
+    color: #94a3b8;
+  }
+
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+
+  &__edit-action {
+    color: #475569 !important;
+
+    &:hover {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+    }
+  }
+
+  &__delete-action {
+    color: #dc2626 !important;
+
+    &:hover {
+      background-color: #fef2f2 !important;
+      color: #b91c1c !important;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 280px;
+    padding: 32px;
+    border: 1px solid $border-color;
+    border-radius: 12px !important;
+    text-align: center;
+  }
+
+  &__empty-icon {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    margin-bottom: 4px;
+    border-radius: 14px;
+    background: #f1f5f9;
+    color: #475569;
+
+    svg {
+      font-size: 25px;
+    }
+  }
+
+  &__empty-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 7px;
+    background: #111827;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background: #273449;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .user-table__paper {
+    border-radius: 8px !important;
+  }
+}
